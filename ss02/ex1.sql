@@ -37,9 +37,27 @@ foreign key (ma_vat_tu) references vat_tu(ma_vat_tu),
 foreign key (so_pn) references phieu_nhap(so_pn)
 );
 
- create table don_dat_hang(
+
+ 
+ create table nha_cung_cap(
+ma_nha_cung_cap int primary key auto_increment,
+ten_nha_cung_cap varchar(45),
+dia_chi varchar(45)
+);
+
+
+create table so_dien_thoai(
+ma_nha_cung_cap int,
+ma_so_dien_thoai int primary key auto_increment,
+so_dien_thoai varchar(13),
+foreign key(ma_nha_cung_cap) references nha_cung_cap(ma_nha_cung_cap)
+);
+
+create table don_dat_hang(
  so_dat_hang int primary key auto_increment,
- ngay_dat_hang date
+ ngay_dat_hang date,
+ ma_nha_cung_cap int,
+ foreign key (ma_nha_cung_cap) references nha_cung_cap(ma_nha_cung_cap)
  );
  
  create table chi_tiet_don_dat_hang(
@@ -49,24 +67,3 @@ foreign key (so_pn) references phieu_nhap(so_pn)
  foreign key (so_dat_hang) references don_dat_hang(so_dat_hang),
  foreign key (ma_vat_tu) references vat_tu(ma_vat_tu)
  );
- 
- create table nha_cung_cap(
-ma_nha_cung_cap int primary key auto_increment,
-ten_nha_cung_cap varchar(45),
-dia_chi varchar(45)
-);
-
-create table cung_cap(
-so_dat_hang int,
-ma_nha_cung_cap int,
-primary key(so_dat_hang,ma_nha_cung_cap),
-foreign key(so_dat_hang) references don_dat_hang(so_dat_hang),
-foreign key(ma_nha_cung_cap) references nha_cung_cap(ma_nha_cung_cap)
-);
-
-create table so_dien_thoai(
-ma_nha_cung_cap int,
-ma_so_dien_thoai int primary key auto_increment,
-so_dien_thoai varchar(13),
-foreign key(ma_nha_cung_cap) references nha_cung_cap(ma_nha_cung_cap)
-);
