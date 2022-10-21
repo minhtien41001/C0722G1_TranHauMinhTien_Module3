@@ -29,6 +29,7 @@ dia_chi varchar(45),
 ma_vi_tri int,
 ma_trinh_do int,
 ma_bo_phan int,
+is_delete bit default 0,
 foreign key (ma_vi_tri) references vi_tri(ma_vi_tri),
 foreign key (ma_trinh_do) references trinh_do(ma_trinh_do),
 foreign key (ma_bo_phan) references bo_phan(ma_bo_phan)
@@ -49,6 +50,7 @@ so_cmnd varchar(45),
 so_dien_thoai varchar(45),
 email varchar(45),
 dia_chi varchar(45),
+is_delete bit default 0,
 foreign key (ma_loai_khach) references loai_khach(ma_loai_khach)
 );
 
@@ -75,6 +77,7 @@ mo_ta_tien_nghi_khac varchar(45),
 dien_tich_ho_boi double,
 so_tang int,
 dich_vu_mien_phi_di_kem text,
+is_delete bit default 0,
 foreign key (ma_kieu_thue) references kieu_thue(ma_kieu_thue),
 foreign key (ma_loai_dich_vu) references loai_dich_vu(ma_loai_dich_vu)
 );
@@ -87,6 +90,7 @@ tien_dat_coc double,
 ma_nhan_vien int,
 ma_khach_hang int,
 ma_dich_vu int,
+is_delete bit default 0,
 foreign key (ma_nhan_vien) references nhan_vien(ma_nhan_vien),
 foreign key (ma_khach_hang) references khach_hang(ma_khach_hang),
 foreign key (ma_dich_vu) references dich_vu(ma_dich_vu)

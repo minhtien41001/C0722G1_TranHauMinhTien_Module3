@@ -46,7 +46,8 @@ where hop_dong.ma_dich_vu not in (
 select hop_dong.ma_dich_vu
 from hop_dong
 where (year(hop_dong.ngay_lam_hop_dong) >= 2021) and (month(hop_dong.ngay_lam_hop_dong) in (1,2,3)))
-group by ma_dich_vu;
+group by ma_dich_vu; 
+
 
 -- task 7: 7.	Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ đã từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
 select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu,	dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
@@ -73,7 +74,7 @@ from khach_hang;
 -- cách 3 
 select ho_ten
 from khach_hang
-union 
+union 	
 select ho_ten
 from khach_hang;
 
@@ -142,16 +143,86 @@ having so_lan_su_dung = 1;
 
 -- 15. Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi 
 -- mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
-select nv.ma_nhan_vien, nv.ho_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi, count(hd.ma_nhan_vien) as so_hop_dong_tu_2020_den_2021
+select nv.ma_nhan_vien, nv.ho_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi
 from nhan_vien nv 
 join trinh_do td on td.ma_trinh_do = nv.ma_trinh_do
 join bo_phan bp on bp.ma_bo_phan = nv.ma_bo_phan
 join hop_dong hd on hd.ma_nhan_vien = nv.ma_nhan_vien
-group by ma_nhan_vien
-having so_hop_dong_tu_2020_den_2021 <= 3;
+where year(hd.ngay_lam_hop_dong) between 2020 and 2021
+group by nv.ma_nhan_vien
+having COUNT(hd.ma_hop_dong)<=3;
 
 
+-- task 16: 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021
+SET SQL_SAFE_UPDATES = 0;
+update nhan_vien set is_delete = 1 where ma_nhan_vien in(
+select temp.ma_nhan_vien
+from (
+select ma_nhan_vien
+from nhan_vien 
+where ma_nhan_vien not in(
+select ma_nhan_vien 
+from hop_dong
+where year(ngay_lam_hop_dong) between 2019 and 2021)
+) as temp
+);
 
+select * 
+from nhan_vien
+where is_delete = 1;
+
+
+-- task 17:17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, 
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ. 
+
+update khach_hang set ma_loai_khach = 1 where ma_khach_hang in(
+select ma_khach_hang
+from (select kh.ma_khach_hang, sum(ifnull(dv.chi_phi_thue, 0) + ifnull(hdct.so_luong, 0) * ifnull(dvdk.gia, 0)) as tong_tien
+	from khach_hang kh
+	left join hop_dong hd on hd.ma_khach_hang = kh.ma_khach_hang
+	left join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
+	left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
+	left join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+	left join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach
+	where year(hd.ngay_lam_hop_dong) = 2021 and lk.ten_loai_khach = 'Platinium'
+	group by ma_khach_hang
+	having tong_tien > 10000000) as temp
+);
+
+-- task:18. Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+update khach_hang set is_delete = 1 where ma_khach_hang in(
+select ma_khach_hang
+from hop_dong
+where year(ngay_lam_hop_dong) < 2021
+);
+
+select *
+from khach_hang
+where is_delete = 1;
+
+-- task:19. Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+update dich_vu_di_kem 
+set gia = gia * 2 where ma_dich_vu_di_kem in (
+select * 
+from (select dvdk.ma_dich_vu_di_kem
+	from dich_vu_di_kem dvdk
+	join hop_dong_chi_tiet hdct on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+	join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+	where year(hd.ngay_lam_hop_dong) = 2020
+	group by ma_dich_vu_di_kem
+	having sum(hdct.so_luong) > 10) as temp
+);
+
+select *
+from dich_vu_di_kem;
+
+-- task:20. Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, 
+-- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+select ma_khach_hang as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi, is_delete
+from khach_hang
+union all
+select ma_nhan_vien as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi, is_delete
+from nhan_vien;
 
 
 
