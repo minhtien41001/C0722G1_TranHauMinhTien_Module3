@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header {
+    height: 60px;
+    display: flex;
+    box-shadow: 1px 0 5px #e0e2e5;
+    padding: 8px 12px;
+}
+.logo-and-search{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.logo i{
+    color: #139cf7;
+    font-size: 36px;
+    margin-right: 12px;
+}
+.search{
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 20px;
+    margin-right: 12px;
+}
+.search i{
+    color: #65676b;
+}
+.search .input-search{
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    margin-left: 12px;
+}
+.nav-top{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.nav-top i{
+    color: #65676b;
+    font-size: 10px;
+}
+.nav-top-item{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.nav-top-item.active{
+    border-bottom: 2px solid #139cf7;
+}
+.nav-top .nav-top-item i.active{
+    color: #139cf7;
+}
+
+.personal{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.personal i {
+    color: #050505;
+    font-size: 20px;
+}
+.box-personal{
+    height: 30px;
+    display: inline-block;
+    background-color: #e4e6eb;
+    /*padding: 12px;*/
+    margin-left: 20px;
+    border-radius: 25%;
+}
+/*.box-personal.account{*/
+/*    background-image: url("images/moki.jpg");*/
+/*    background-size: contain;*/
+/*}*/
+
+.box-personal.account i{
+    color: transparent;
+}
+
+#s-body{
+    background-color: black;
+}
+
+#left{
+    width: 25%;
+    min-height: 1000px;
+    border: 1px solid #CDCDCD ;
+    float:left;
+    margin-bottom: 5px;
+}
+
+#left li {
+    display: flex;
+    border: 1px solid;
+}
+
+#left ul{
+    padding-top: 10%;
+}
+
+#content{
+    width: 50%;
+    border: 1px solid #CDCDCD;
+    float:left;
+}
+
+#right{
+    width: 25%;
+    min-height: 1000px;
+    border: 1px solid #CDCDCD ;
+    float:right;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,63 @@
+.row{
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.head{
+    background: gold;
+    height: 70px;
+}
+.content{
+    background: darkgrey;
+    height: 30px;
+}
+.left{
+    background: #CDCDCD;
+    height: 700px;
+    overflow: hidden;
+}
+.left:hover{
+    overflow: scroll;
+}
+.right{
+    background: red;
+    height: 200px;
+}
+#Tieude{
+    font-family: "UTM Flamenco";
+    font-size: 30px;
+    color: blue;
+    text-align: center;
+    margin-top: -5px;
+}
+#Tieudechinh{
+    font-family: "UTM Flamenco";
+    font-size: 50px;
+    text-align: center;
+    color: red;
+    margin-top: -5px;
+    margin-left: -500px;
+}
+p{
+    width: 980px;
+    text-indent:30px;
+    line-height: 1.5;
+    text-align: justify;
+}
+a{
+    color: blue;
+    font-size: 18px;
+    font-family: "UTM Flamenco";
+}
+.col-s-1 {width: 8.33333%;}
+.col-s-2 {width: 16.66667%;}
+.col-s-3 {width: 25%;}
+.col-s-4 {width: 33.33333%;}
+.col-s-5 {width: 41.66667%;}
+.col-s-6 {width: 50%;}
+.col-s-7 {width: 58.33333%;}
+.col-s-8 {width: 66.66667%;}
+.col-s-9 {width: 75%;}
+.col-s-10 {width: 83.33333%;}
+.col-s-11 {width: 91.66667%;}
+.col-s-12 {width: 100%;}
