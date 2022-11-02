@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="04873d95-514a-4949-ac62-5cd570b75e66" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../cs_jsp_servlet/src/main/webapp/view/facility/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cs_jsp_servlet/src/main/webapp/view/facility/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cs_jsp_servlet/src/main/webapp/view/facility/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/currencyConversion/src/main/java/currencyConversionServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dictionary/src/main/java/DictionaryServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productDiscountCalculator/src/main/java/DiscountCalculatorServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productDiscountCalculator/src/main/webapp/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productDiscountCalculator/src/main/webapp/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/showTheTime/src/main/java/showTimeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simple_login/src/main/java/loginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/build/libs/cs_jsp_servlet-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/build/libs/cs_jsp_servlet-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs_jsp_servlet/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../cs_jsp_servlet/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2H02Y8LROQnXVzx9heqjqPGh9SU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04873d95-514a-4949-ac62-5cd570b75e66" name="Changes" comment="" />
+      <created>1667407724417</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667407724417</updated>
+      <workItem from="1667407725765" duration="20000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
