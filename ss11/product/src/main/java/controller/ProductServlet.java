@@ -38,7 +38,7 @@ public class ProductServlet extends HttpServlet {
                 searchByName(request, response);
                 break;
             default:
-                listProducts(request, response);
+                searchByName(request, response);
         }
     }
 
@@ -54,15 +54,15 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void listProducts(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/list.jsp");
-        request.setAttribute("productList", iProductService.findAll());
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void listProducts(HttpServletRequest request, HttpServletResponse response) {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/list.jsp");
+//        request.setAttribute("productList", iProductService.findAll());
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException | IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
