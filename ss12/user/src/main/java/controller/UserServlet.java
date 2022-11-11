@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet {
                 addUserPermision(request, response);
                 break;
             default:
-                listUser(request, response);
+                searchByCountry(request, response);
         }
     }
 
@@ -67,7 +67,7 @@ public class UserServlet extends HttpServlet {
 
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
         String countrySearch = request.getParameter("countrySearch");
-        List<User> users = iUserService.findByCountry(countrySearch);
+        List<User> users = iUserService.findByCountry(countrySearch == null ? "" :countrySearch);
         request.setAttribute("users", users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         try {
@@ -94,15 +94,15 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void listUser(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
-        request.setAttribute("users", iUserService.selectAllUsers());
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void listUser(HttpServletRequest request, HttpServletResponse response) {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
+//        request.setAttribute("users", iUserService.selectAllUsers());
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException | IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));

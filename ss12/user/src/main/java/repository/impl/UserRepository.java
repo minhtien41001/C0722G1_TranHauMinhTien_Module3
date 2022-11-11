@@ -13,7 +13,6 @@ public class UserRepository implements IUserRepository {
 
     private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?;";
 
-
     private static final String FIND_BY_COUNTRY = "select * from users where country like ?;";
 
     private static final String SORT_BY_NAME = "select * from users order by name;";
@@ -113,7 +112,6 @@ public class UserRepository implements IUserRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return rowUpdated;
     }
 
