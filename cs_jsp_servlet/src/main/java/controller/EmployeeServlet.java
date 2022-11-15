@@ -111,7 +111,7 @@ public class EmployeeServlet extends HttpServlet {
         boolean check = iEmployeeService.delete(idDelete);
         String mess = "Delete Employee failed.";
         if (check) {
-            mess = "Delete Employee successfully.";
+            mess = "Delete Employee succes  sfully.";
         }
         request.setAttribute("mess", mess);
         request.setAttribute("check", check);
@@ -238,6 +238,11 @@ public class EmployeeServlet extends HttpServlet {
 
         boolean check = iEmployeeService.create(employee);
         String mess = "Add new Employee successfully.";
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (!check) {
             mess = "Add new Employee failed.";
         }
@@ -245,6 +250,11 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("mess", mess);
         request.setAttribute("check", check);
 
-        showCreateForm(request, response);
+//        showCreateForm(request, response);
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

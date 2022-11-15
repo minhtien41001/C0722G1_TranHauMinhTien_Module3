@@ -85,12 +85,7 @@
         </li>
 
         <li class="nav-item dropdown ms-3">
-          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">Customer</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/customer">Customer list</a></li>
-            <li><a class="dropdown-item" href="/customer?action=create">Add new Customer</a></li>
-          </ul>
+          <a class="nav-link text-dark" href="/customer" role="button" >Customer</a>
         </li>
 
         <li class="nav-item dropdown ms-3">
